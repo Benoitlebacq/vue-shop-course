@@ -1,0 +1,49 @@
+:root {
+  --color-primary: #00738a;
+  --color-primary-hover: #005f71;
+
+  --color-bg-app: #f1f5f7;
+  --color-bg-sidebar: #00738a;
+  --color-bg-basket: #f1f1f1;
+  --color-bg-header: #ffffff;
+  --color-bg-page: #f5f3ee;
+  --color-bg-card: #ffffff;
+
+  --color-text-main: #1f2933;
+  --color-text-muted: #6b7280;
+  --color-border: #d1d9de;
+
+  --color-parentheses: rgb(188, 117, 4);
+}
+
+[data-theme="dark"] {
+  --color-bg-app: #0f172a;
+  --color-bg-sidebar: #020617;
+  --color-bg-header: #020617;
+  --color-bg-basket: #414451;
+  --color-bg-page: #020617;
+  --color-bg-card: #020617;
+
+  --color-text-main: #e5e7eb;
+  --color-text-muted: #9ca3af;
+  --color-border: #1e293b;
+
+  --color-primary: #38bdf8;
+  --color-primary-hover: #0ea5e9;
+
+  --color-parentheses: rgb(188, 170, 4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg-app);
+  color: var(--color-text-main);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+  font-family: tahoma;
+}

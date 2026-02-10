@@ -15,3 +15,22 @@ import AppHeader from "@/components/AppHeader.vue";
     </div>
   </div>
 </template>
+
+<style scoped>
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  padding: 1.5rem;
+  flex: 1;
+  background: var(--color-beige);
+}
+</style>
