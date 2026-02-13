@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import CloseIcon from "@/assets/CloseIcon.vue";
+import { useUiStore } from "@/stores/ui";
 
 const navLinks = [
   { path: "/", name: "Home", icon: "🏠" },
@@ -8,17 +9,19 @@ const navLinks = [
   { path: "/boxers", name: "Boxers", icon: "🩳" },
 ];
 
-const isSideBarOpen = ref<boolean>(true);
-
-const onClickToggleSideBar = () => {
-  isSideBarOpen.value = !isSideBarOpen.value;
-};
+const ui = useUiStore();
 </script>
 
 <template>
-  <aside :class="['sidebar', { collapsed: !isSideBarOpen }]">
-    <button v-if="isSideBarOpen" @click="onClickToggleSideBar">X</button>
-    <button v-else class="icon" @click="onClickToggleSideBar">☰</button>
+  <aside :class="['sidebar', { collapsed: !ui.sidebarOpen }]">
+    <button
+      v-if="ui.sidebarOpen"
+      @click="ui.toggleSidebar"
+      class="icon text-white"
+    >
+      <CloseIcon />
+    </button>
+    <button v-else class="icon" @click="ui.toggleSidebar">☰</button>
     <nav>
       <RouterLink
         v-for="link in navLinks"
@@ -26,7 +29,7 @@ const onClickToggleSideBar = () => {
         :to="link.path"
         class="nav-link"
       >
-        <span v-if="isSideBarOpen">{{ link.name }}</span>
+        <span v-if="ui.sidebarOpen">{{ link.name }}</span>
         <span v-else class="link-icon">{{ link.icon }}</span>
       </RouterLink>
     </nav>

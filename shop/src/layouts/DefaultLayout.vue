@@ -2,6 +2,11 @@
 import { RouterView } from "vue-router";
 import AppSideBar from "@/components/AppSideBar.vue";
 import AppHeader from "@/components/AppHeader.vue";
+import Cart from "@/components/Cart.vue";
+
+defineProps<{
+  isProduct: boolean;
+}>();
 </script>
 
 <template>
@@ -11,6 +16,7 @@ import AppHeader from "@/components/AppHeader.vue";
       <AppHeader />
       <main class="page">
         <RouterView />
+        <Cart v-if="isProduct" />
       </main>
     </div>
   </div>
@@ -29,8 +35,11 @@ import AppHeader from "@/components/AppHeader.vue";
 }
 
 .page {
+  display: flex;
+  justify-content: space-between;
   padding: 1.5rem;
   flex: 1;
   background: var(--color-beige);
+  flex-wrap: wrap;
 }
 </style>

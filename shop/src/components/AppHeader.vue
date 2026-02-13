@@ -1,8 +1,16 @@
+<script setup lang="ts">
+import { useUiStore } from "@/stores/ui";
+
+const ui = useUiStore();
+</script>
 <template>
   <header class="header">
     <div class="header-left">
       <h1>Console.log<span class="parentheses">( )</span></h1>
     </div>
+    <button class="icon" @click="ui.toggleTheme">
+      {{ ui.theme === "light" ? "🌚" : "🌞" }}
+    </button>
   </header>
 </template>
 
